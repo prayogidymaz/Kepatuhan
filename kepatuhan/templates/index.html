@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi COC</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" href="#">KC Medan</a>
+            <a class="nav-link active" href="#">Badan Usaha</a> 
+          </div>
+        </div>
+    </nav>
+    <h2 class="text-center">SELAMAT DATANG DI APLIKASI COC BADAN USAHA</h2>
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>ID</th>
+            <th>Jenis Layanan</th>
+            <th>Kode BU</th>
+            <th>Nama BU</th>
+            <th>Jumlah Pekerja</th>
+            <th>No NPWP</th>
+            <th>No NIB</th>
+            <th>Tanggal Kirim</th>
+            <th>Tanggal Selesai</th>
+            <th>Status Proses</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for queryset in queryset %}
+          <tr>
+            <td>{{ queryset.jenis_layanan }}</td>
+            <td>{{ queryset.kode_bu }}</td>
+            <td>{{ queryset.nama_bu }}</td>
+            <td>{{ queryset.jumlah_pekerja }}</td>
+            <td>{{ queryset.nomor_npwp }}</td>
+            <td>{{ queryset.nomor_nib }}</td>
+            <td>{{ queryset.tgl_kirim }}</td>
+            <td>{{ queryset.tgl_terima }}</td>
+            <td>{{ queryset.status_proses }}</td>
+          </tr>
+          {% endfor %}
+    <script src="{% static 'js/jquery.js' %}"></script>    
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>    
+</body>
+
+</html>
